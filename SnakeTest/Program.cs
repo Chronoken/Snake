@@ -130,6 +130,20 @@ class Program
                     break;
             }
 
+            //Kollision mit Wände oder mit sich selbst
+            if (newHead.xPos == 0 || newHead.xPos == screenWidth - 1 || newHead.yPos == 0 || newHead.yPos == screenHeight - 1)
+            {
+                GameOver(score);
+            }
+
+            foreach (var segment in tail)
+            {
+                if (newHead.xPos == segment.xPos && newHead.yPos == segment.yPos)
+                {
+                    GameOver(score);
+                }
+            }
+
             //Hindernis treffen
 
             if (hoofd.xPos == obstacleXpos /* ?? */ == obstacleYpos)
@@ -151,44 +165,6 @@ class Program
             teljePositie.RemoveAt(teljePositie.Count - 1);
 
             teljePositie.RemoveAt(teljePositie.Count - 1);
-
-            //Kollision mit Wände oder mit sich selbst
-
-            if (hoofd.xPos == 0 || hoofd.xPos == screenWidth - 1 || hoofd.yPos == 0 || hoofd.yPos == screenHeight - 1)
-
-            {
-
-                Console.Clear();
-
-                Console.ForegroundColor = ConsoleColor.Red;
-
-                Console.SetCursorPosition(screenWidth / 5, screenHeight / 2);
-
-                Console.WriteLine("Game Over");
-
-                Console.SetCursorPosition(screenWidth / 5, screenHeight / 2 + 1);
-
-                Console.WriteLine("Dein Score ist: " + score);
-
-                Console.SetCursorPosition(screenWidth / 5, screenHeight / 2 + 2);
-
-                Environment.Exit(0);
-
-            }
-
-            for (int i = 0; i < telje.Count(); i += 2)
-
-            {
-
-                if (hoofd.xPos == telje[i] && hoofd.yPos == telje[i + 1])
-
-                {
-
-                    GameOver(score);
-
-                }
-
-            }
 
             Thread.Sleep(50);
 
