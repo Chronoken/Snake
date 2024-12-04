@@ -59,42 +59,23 @@ class Program
                 Console.Write("■");
             }
 
-            Console.ForegroundColor =  /* ?? */;
 
-            Console.WriteLine("Score: " + score);
+            // Draw obstacle
+            Console.ForegroundColor = obstacle.schermKleur;
+            Console.SetCursorPosition(obstacle.xPos, obstacle.yPos);
+            Console.Write(obstacle.karacter);
 
-            Console.ForegroundColor = ConsoleColor.White;
 
-            Console.Write("H");
+            // Draw snake
+            Console.ForegroundColor = hoofd.schermKleur;
+            Console.SetCursorPosition(hoofd.xPos, hoofd.yPos);
+            Console.Write(hoofd.karacter);
 
-            for (int i = 0; i < telje.Count(); i++)
-
+            foreach (var segment in tail)
             {
-
-                Console.SetCursorPosition(telje[i], telje[i + 1]);
-
-                Console.Write("■");
-
+                Console.SetCursorPosition(segment.xPos, segment.yPos);
+                Console.Write(segment.karacter);
             }
-
-            //Draw Snake
-
-            Console.SetCursorPosition(hoofd.xPos, hoofd.yPos);
-
-            Console.Write("■");
-
-            Console.SetCursorPosition(hoofd.xPos, hoofd.yPos);
-
-            Console.Write("■");
-
-            Console.SetCursorPosition(hoofd.xPos, hoofd.yPos);
-
-            Console.Write("■");
-
-            Console.SetCursorPosition(hoofd.xPos, hoofd.yPos);
-
-            Console.Write("■");
-
 
 
             ConsoleKeyInfo info = Console.ReadKey();
