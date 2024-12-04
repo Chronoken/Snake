@@ -35,87 +35,28 @@ class Program
 
         int score = 0;
 
-
-        List<int> telje = new List<int>();
-
-        List<int> teljePositie = new List<int>();
-
-        teljePositie.Add(hoofd.xPos);
-
-        teljePositie.Add(hoofd.yPos);
-
-        DateTime tijd = DateTime.Now;
-
-        //string obstacle = "*";
-
-        int obstacleXpos = random.Next(1, screenWidth);
-
-        int obstacleYpos = random.Next(1, screenHeight);
-
         while (true)
-
         {
 
             Console.Clear();
 
-            //Draw Obstacle
-
-            Console.ForegroundColor = ConsoleColor.Cyan;
-
-            Console.SetCursorPosition(obstacleXpos, obstacleYpos);
-
-            Console.Write(obstacle);
-
-
-
-            Console.ForegroundColor = ConsoleColor.Green;
-
-            Console.SetCursorPosition(hoofd.xPos, hoofd.yPos);
-
-            Console.Write("■");
-
-
-
             Console.ForegroundColor = ConsoleColor.White;
 
+            // Draw borders
             for (int i = 0; i < screenWidth; i++)
-
             {
-
                 Console.SetCursorPosition(i, 0);
-
                 Console.Write("■");
-
-            }
-
-            for (int i = 0; i < screenWidth; i++)
-
-            {
-
                 Console.SetCursorPosition(i, screenHeight - 1);
-
                 Console.Write("■");
-
             }
 
             for (int i = 0; i < screenHeight; i++)
-
             {
-
                 Console.SetCursorPosition(0, i);
-
                 Console.Write("■");
-
-            }
-
-            for (int i = 0; i < screenHeight; i++)
-
-            {
-
                 Console.SetCursorPosition(screenWidth - 1, i);
-
                 Console.Write("■");
-
             }
 
             Console.ForegroundColor =  /* ?? */;
