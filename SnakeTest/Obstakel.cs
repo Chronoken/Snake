@@ -6,7 +6,7 @@ public class Obstakel
 
     public int yPos { get; set; }
 
-    public ConsoleColor schermKleur { get; set; } = ConsoleColor.Cyan;
+    public ConsoleColor schermKleur { get; set; } = ConsoleColor.Red;
 
     public string karacter { get; set; } = "*";
 
