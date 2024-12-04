@@ -11,7 +11,7 @@ class Program
     {
 
         Console.Clear();
-        Console.CursorVisible = true;
+        Console.CursorVisible = false;
 
         int screenWidth = Console.WindowWidth;
         int screenHeight = Console.WindowHeight;
@@ -83,9 +83,6 @@ class Program
             Console.SetCursorPosition(1, 0);
             Console.Write($"Score: {score}");
 
-
-            ConsoleKeyInfo info = Console.ReadKey();
-
             //Game Logic
             if (Console.KeyAvailable)
             {
@@ -155,13 +152,11 @@ class Program
                 tail.Add(new Pixel { xPos = hoofd.xPos, yPos = hoofd.yPos });
             }
 
-            teljePositie.Insert(0, hoofd.xPos);
+            // Update snake position
+            tail.Insert(0, new Pixel { xPos = hoofd.xPos, yPos = hoofd.yPos });
+            if (tail.Count > score) tail.RemoveAt(tail.Count - 1);
 
-            teljePositie.Insert(1, hoofd.yPos);
-
-            teljePositie.RemoveAt(teljePositie.Count - 1);
-
-            teljePositie.RemoveAt(teljePositie.Count - 1);
+            hoofd = newHead;
 
             Thread.Sleep(50);
 
