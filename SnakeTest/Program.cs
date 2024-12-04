@@ -23,25 +23,30 @@ class Program
             yPos = screenHeight / 2
         };
 
-        List<int> telje = new List<int>();
+        Obstakel obstacle = new Obstakel()
+        {
+            xPos = random.Next(1, screenWidth - 1),
+            yPos = random.Next(1, screenHeight - 1)
+        };
+
+        List<Pixel> tail = new List<Pixel>();
 
         string movement = "RIGHT";
 
         int score = 0;
 
+
+        List<int> telje = new List<int>();
+
         List<int> teljePositie = new List<int>();
-
-
 
         teljePositie.Add(hoofd.xPos);
 
         teljePositie.Add(hoofd.yPos);
 
-
-
         DateTime tijd = DateTime.Now;
 
-        string obstacle = "*";
+        //string obstacle = "*";
 
         int obstacleXpos = random.Next(1, screenWidth);
 
