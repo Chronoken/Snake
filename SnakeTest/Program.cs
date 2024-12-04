@@ -145,17 +145,14 @@ class Program
             }
 
             //Hindernis treffen
-
-            if (hoofd.xPos == obstacleXpos /* ?? */ == obstacleYpos)
-
+            if (newHead.xPos == obstacle.xPos && newHead.yPos == obstacle.yPos)
             {
-
                 score++;
+                obstacle.xPos = random.Next(1, screenWidth - 1);
+                obstacle.yPos = random.Next(1, screenHeight - 1);
 
-                obstacleXpos = random.Next(1, screenWidth);
-
-                obstacleYpos = random.Next(1, screenHeight);
-
+                // Add a new segment to the tail
+                tail.Add(new Pixel { xPos = hoofd.xPos, yPos = hoofd.yPos });
             }
 
             teljePositie.Insert(0, hoofd.xPos);
