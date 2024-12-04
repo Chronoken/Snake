@@ -78,6 +78,12 @@ class Program
             }
 
 
+            // Draw score
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.SetCursorPosition(1, 0);
+            Console.Write($"Score: {score}");
+
+
             ConsoleKeyInfo info = Console.ReadKey();
 
             //Game Logic
