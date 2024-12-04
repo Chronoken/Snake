@@ -184,21 +184,7 @@ class Program
 
                 {
 
-                    Console.Clear();
-
-                    Console.ForegroundColor = ConsoleColor.Red;
-
-                    Console.SetCursorPosition(screenWidth / 5, screenHeight / 2);
-
-                    //???
-
-                    Console.SetCursorPosition(screenWidth / 5, screenHeight / 2 + 1);
-
-                    Console.WriteLine("Dein Score ist: " + score);
-
-                    Console.SetCursorPosition(screenWidth / 5, screenHeight / 2 + 2);
-
-                    Environment.Exit(0);
+                    GameOver(score);
 
                 }
 
@@ -208,6 +194,16 @@ class Program
 
         }
 
+    }
+
+    static void GameOver(int score)
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.SetCursorPosition(Console.WindowWidth / 4, Console.WindowHeight / 2);
+        Console.WriteLine($"Game Over! Final Score: {score}");
+        Console.ReadKey();
+        Environment.Exit(0);
     }
 
 }
