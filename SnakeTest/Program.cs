@@ -87,52 +87,48 @@ class Program
             ConsoleKeyInfo info = Console.ReadKey();
 
             //Game Logic
-
-            switch (info.Key)
-
+            if (Console.KeyAvailable)
             {
-
-                case ConsoleKey.UpArrow:
-
-                    movement = "UP";
-
-                    break;
-
-                case ConsoleKey.DownArrow:
-
-                    movement = "DOWN";
-
-                // ???
-
-                case ConsoleKey.LeftArrow:
-
-                    movement = "LEFT";
-
-                    break;
-
-                case ConsoleKey.RightArrow:
-
-                    movement = "RIGHT";
-
-                    break;
-
+                ConsoleKey key = Console.ReadKey(true).Key;
+                switch (key)
+                {
+                    case ConsoleKey.UpArrow when movement != "DOWN":
+                        movement = "UP";
+                        break;
+                    case ConsoleKey.DownArrow when movement != "UP":
+                        movement = "DOWN";
+                        break;
+                    case ConsoleKey.LeftArrow when movement != "RIGHT":
+                        movement = "LEFT";
+                        break;
+                    case ConsoleKey.RightArrow when movement != "LEFT":
+                        movement = "RIGHT";
+                        break;
+                }
             }
 
-            if (movement == "UP")
+            Pixel newHead = new Pixel
+            {
+                xPos = hoofd.xPos,
+                yPos = hoofd.yPos,
+                schermKleur = hoofd.schermKleur
+            };
 
-                hoofd.yPos--;
-
-            if (movement == "DOWN")
-
-                hoofd.yPos++;
-
-            if (movement == "LEFT")
-
-                hoofd.xPos--;
-
-            if (movement == "RIGHT")
-
-                hoofd.xPos++;
+            switch (movement)
+            {
+                case "UP":
+                    newHead.yPos--;
+                    break;
+                case "DOWN":
+                    newHead.yPos++;
+                    break;
+                case "LEFT":
+                    newHead.xPos--;
+                    break;
+                case "RIGHT":
+                    newHead.xPos++;
+                    break;
+            }
 
             //Hindernis treffen
 
