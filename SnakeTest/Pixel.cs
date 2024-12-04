@@ -6,7 +6,7 @@
 
     public int yPos { get; set; }
 
-    public ConsoleColor schermKleur { get; set; } = ConsoleColor.Green;
+    public ConsoleColor schermKleur { get; set; } = ConsoleColor.Red;
 
     public string karacter { get; set; } = "■";
 
